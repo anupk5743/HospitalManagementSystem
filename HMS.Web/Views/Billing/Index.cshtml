@@ -1,0 +1,49 @@
+﻿@model List<HMS.Web.Models.BillingVM>
+
+<h2>Billing</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    Create Bill
+</a>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var b in Model)
+        {
+            <tr>
+
+                <td>@b.PatientId</td>
+
+                <td>@b.TotalAmount</td>
+
+                <td>@b.PaymentStatus</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@b.Id"
+                           class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@b.Id"
+                           class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model List<HMS.Web.Models.DepartmentVM>
+
+<h2>Departments</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    Add Department
+</a>
+
+<table class="table table-bordered">
+
+    <thead>
+
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Head</th>
+            <th>Action</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var d in Model)
+        {
+            <tr>
+
+                <td>@d.Name</td>
+                <td>@d.Description</td>
+                <td>@d.HeadOfDepartment</td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                           asp-route-id="@d.Id"
+                           class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Delete"
+                           asp-route-id="@d.Id"
+                           class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

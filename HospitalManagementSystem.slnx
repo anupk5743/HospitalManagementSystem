@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="HMS.Api/HMS.Api.csproj" Id="b090249c-940c-4c08-bfa8-e6d707979539">
+    <BuildDependency Project="HMS.Web/HMS.Web.csproj" />
+  </Project>
+  <Project Path="HMS.Web/HMS.Web.csproj" Id="43e1267b-bf59-4c2b-998a-24da9fb79a83" />
+</Solution>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<HMS.Web.Models.AppointmentVM>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h2>Appointments</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create Appointment</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Patient Name</th>
+            <th>Doctor Name</th>
+            <th>Department</th>
+            <th>Appointment Date</th>
+            <th>Symptoms</th>
+            <th>Status</th>
+            <th width="220">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @(item.PatientName ?? "N/A")
+                </td>
+
+                <td>
+                    @(item.DoctorName ?? "N/A")
+                </td>
+
+                <td>
+                    @(item.DepartmentName ?? "N/A")
+                </td>
+
+                <td>
+                    @item.AppointmentDate.ToString("dd MMM yyyy hh:mm tt")
+                </td>
+
+                <td>
+                    @(item.Symptoms ?? "N/A")
+                </td>
+
+                <td>
+                    <span class="badge bg-info">
+                        @(item.Status ?? "Pending")
+                    </span>
+                </td>
+
+                <td>
+
+                    <a asp-action="Edit"
+                           asp-route-id="@item.Id"
+                           class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a asp-action="Details"
+                           asp-route-id="@item.Id"
+                           class="btn btn-info btn-sm">
+                        Details
+                    </a>
+
+                    <a asp-action="Delete"
+                           asp-route-id="@item.Id"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Are you sure to delete this appointment?')">
+                        Delete
+                    </a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>

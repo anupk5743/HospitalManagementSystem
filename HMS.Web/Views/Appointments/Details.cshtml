@@ -1,0 +1,78 @@
+﻿@model HMS.Web.Models.AppointmentVM
+
+@{
+    ViewData["Title"] = "Appointment Details";
+}
+
+<h2>Appointment Details</h2>
+
+<hr />
+
+<div class="card">
+    <div class="card-body">
+
+        <dl class="row">
+
+            <dt class="col-sm-3">
+                Patient Name
+            </dt>
+            <dd class="col-sm-9">
+                @Model.PatientName
+            </dd>
+
+            <dt class="col-sm-3">
+                Doctor Name
+            </dt>
+            <dd class="col-sm-9">
+                @Model.DoctorName
+            </dd>
+
+            <dt class="col-sm-3">
+                Department
+            </dt>
+            <dd class="col-sm-9">
+                @Model.DepartmentName
+            </dd>
+
+            <dt class="col-sm-3">
+                Appointment Date
+            </dt>
+            <dd class="col-sm-9">
+                @Model.AppointmentDate.ToString("dd MMM yyyy hh:mm tt")
+            </dd>
+
+            <dt class="col-sm-3">
+                Symptoms
+            </dt>
+            <dd class="col-sm-9">
+                @Model.Symptoms
+            </dd>
+
+            <dt class="col-sm-3">
+                Status
+            </dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-info">
+                    @Model.Status
+                </span>
+            </dd>
+
+        </dl>
+
+    </div>
+</div>
+
+<br />
+
+<div>
+    <a asp-action="Edit"
+           asp-route-id="@Model.Id"
+           class="btn btn-warning">
+        Edit
+    </a>
+
+    <a asp-action="Index"
+           class="btn btn-secondary">
+        Back to List
+    </a>
+</div>

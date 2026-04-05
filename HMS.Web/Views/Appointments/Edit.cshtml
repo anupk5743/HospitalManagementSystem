@@ -1,0 +1,96 @@
+﻿@model HMS.Web.Models.AppointmentVM
+
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<h2>Edit Appointment</h2>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Hidden Id -->
+            <input type="hidden" asp-for="Id" />
+
+
+            <!-- Patient -->
+            <div class="form-group mb-3">
+                <label asp-for="PatientId" class="control-label"></label>
+                <select asp-for="PatientId"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Patients, "Id", "FullName", Model.PatientId))">
+                    <option value="">-- Select Patient --</option>
+                </select>
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+
+
+            <!-- Doctor -->
+            <div class="form-group mb-3">
+                <label asp-for="DoctorId" class="control-label"></label>
+                <select asp-for="DoctorId"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Doctors, "Id", "Name", Model.DoctorId))">
+                    <option value="">-- Select Doctor --</option>
+                </select>
+                <span asp-validation-for="DoctorId" class="text-danger"></span>
+            </div>
+
+
+            <!-- Appointment Date -->
+            <div class="form-group mb-3">
+                <label asp-for="AppointmentDate" class="control-label"></label>
+                <input asp-for="AppointmentDate"
+                       type="datetime-local"
+                       class="form-control" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+
+
+            <!-- Symptoms -->
+            <div class="form-group mb-3">
+                <label asp-for="Symptoms" class="control-label"></label>
+                <textarea asp-for="Symptoms" class="form-control"></textarea>
+                <span asp-validation-for="Symptoms" class="text-danger"></span>
+            </div>
+
+
+            <!-- Status -->
+            <div class="form-group mb-3">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Pending">Pending</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit"
+                       value="Update Appointment"
+                       class="btn btn-primary" />
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">Back</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

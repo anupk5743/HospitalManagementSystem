@@ -1,0 +1,122 @@
+﻿@model HMS.Web.Models.DashboardVM
+@using System.Text.Json
+
+@{
+    ViewData["Title"] = "Dashboard";
+    var analytics = ViewBag.Analytics as HMS.Web.Models.DashboardAnalyticsVM;
+}
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container-fluid mt-4">
+
+    <h2 class="mb-4">Hospital Dashboard</h2>
+
+    <!-- Top Cards -->
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card bg-primary text-white">
+                <div class="card-body">
+                    <h5>Total Patients</h5>
+                    <h3>@Model.TotalPatients</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-success text-white">
+                <div class="card-body">
+                    <h5>Total Doctors</h5>
+                    <h3>@Model.TotalDoctors</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-warning text-white">
+                <div class="card-body">
+                    <h5>Total Appointments</h5>
+                    <h3>@Model.TotalAppointments</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-danger text-white">
+                <div class="card-body">
+                    <h5>Total Revenue</h5>
+                    <h3>₹ @Model.TotalRevenue</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Charts -->
+    <div class="row mt-4">
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Appointments Per Month
+                </div>
+                <div class="card-body">
+                    <canvas id="appointmentsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    Revenue Per Month
+                </div>
+                <div class="card-body">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    var months = @Html.Raw(JsonSerializer.Serialize(analytics?.Months));
+    var appointments = @Html.Raw(JsonSerializer.Serialize(analytics?.AppointmentCounts));
+    var revenue = @Html.Raw(JsonSerializer.Serialize(analytics?.Revenue));
+
+    new Chart(document.getElementById("appointmentsChart"), {
+    type: 'bar',
+    data: {
+    labels: months,
+    datasets: [{
+    label: 'Appointments',
+    data: appointments,
+    backgroundColor: '#0d6efd'
+    }]
+    }
+    });
+
+    new Chart(document.getElementById("revenueChart"), {
+    type: 'line',
+    data: {
+    labels: months,
+    datasets: [{
+    label: 'Revenue',
+    data: revenue,
+    borderColor: '#198754',
+    fill: false
+    }]
+    }
+    });
+
+</script>

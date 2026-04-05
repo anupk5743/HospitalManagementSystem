@@ -1,0 +1,175 @@
+﻿@model HMS.Web.Models.DashboardVM
+
+<style>
+
+    .dashboard-bg {
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3');
+        background-size: cover;
+        background-position: center;
+        padding: 30px;
+        border-radius: 10px;
+        color: white;
+    }
+
+    .card-modern {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+        .card-modern:hover {
+            transform: translateY(-5px);
+        }
+
+    .gradient-blue {
+        background: linear-gradient(45deg,#2193b0,#6dd5ed);
+    }
+
+    .gradient-green {
+        background: linear-gradient(45deg,#11998e,#38ef7d);
+    }
+
+    .gradient-orange {
+        background: linear-gradient(45deg,#f7971e,#ffd200);
+    }
+
+    .gradient-red {
+        background: linear-gradient(45deg,#ff416c,#ff4b2b);
+    }
+
+    .quick-card {
+        border-radius: 12px;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+    }
+
+</style>
+
+<div class="dashboard-bg mb-4">
+
+    <h2>Hospital Management Dashboard</h2>
+    <p>Welcome to Hospital Management System Analytics</p>
+
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card card-modern text-white gradient-blue">
+            <div class="card-body">
+
+                <h5>Total Patients</h5>
+                <h2>@Model.TotalPatients</h2>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="card card-modern text-white gradient-green">
+            <div class="card-body">
+
+                <h5>Total Doctors</h5>
+                <h2>@Model.TotalDoctors</h2>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="card card-modern text-white gradient-orange">
+            <div class="card-body">
+
+                <h5>Appointments</h5>
+                <h2>@Model.TotalAppointments</h2>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="card card-modern text-white gradient-red">
+            <div class="card-body">
+
+                <h5>Total Revenue</h5>
+                <h2>₹ @Model.TotalRevenue</h2>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<hr />
+
+<h4 class="mt-4">Quick Actions</h4>
+
+<div class="row mt-3">
+
+    <div class="col-md-3">
+        <div class="quick-card text-center">
+
+            <h5>Patients</h5>
+
+            <a asp-controller="Patients"
+                   asp-action="Index"
+                   class="btn btn-primary">
+                Manage
+            </a>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="quick-card text-center">
+
+            <h5>Doctors</h5>
+
+            <a asp-controller="Doctors"
+                   asp-action="Index"
+                   class="btn btn-success">
+                Manage
+            </a>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="quick-card text-center">
+
+            <h5>Appointments</h5>
+
+            <a asp-controller="Appointments"
+                   asp-action="Index"
+                   class="btn btn-warning">
+                Manage
+            </a>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="quick-card text-center">
+
+            <h5>Billing</h5>
+
+            <a asp-controller="Billing"
+                   asp-action="Index"
+                   class="btn btn-danger">
+                Manage
+            </a>
+
+        </div>
+    </div>
+
+</div>

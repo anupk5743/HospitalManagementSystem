@@ -1,0 +1,43 @@
+﻿@model HMS.Web.Models.DashboardVM
+
+<h2>Hospital Dashboard</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+<div class="card bg-primary text-white">
+<div class="card-body">
+<h4>Patients</h4>
+<h2>@Model.TotalPatients</h2>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card bg-success text-white">
+<div class="card-body">
+<h4>Doctors</h4>
+<h2>@Model.TotalDoctors</h2>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card bg-warning text-white">
+<div class="card-body">
+<h4>Appointments</h4>
+<h2>@Model.TotalAppointments</h2>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card bg-danger text-white">
+<div class="card-body">
+<h4>Departments</h4>
+<h2>@Model.TotalDepartments</h2>
+</div>
+</div>
+</div>
+
+</div>

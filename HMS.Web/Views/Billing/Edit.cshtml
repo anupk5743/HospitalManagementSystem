@@ -1,0 +1,65 @@
+﻿@model HMS.Web.Models.BillingVM
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>BillingVM</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientId" class="control-label"></label>
+                <input asp-for="PatientId" class="form-control" />
+                <span asp-validation-for="PatientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentId" class="control-label"></label>
+                <input asp-for="AppointmentId" class="form-control" />
+                <span asp-validation-for="AppointmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorFee" class="control-label"></label>
+                <input asp-for="DoctorFee" class="form-control" />
+                <span asp-validation-for="DoctorFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MedicineCharges" class="control-label"></label>
+                <input asp-for="MedicineCharges" class="form-control" />
+                <span asp-validation-for="MedicineCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LabCharges" class="control-label"></label>
+                <input asp-for="LabCharges" class="form-control" />
+                <span asp-validation-for="LabCharges" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input asp-for="TotalAmount" class="form-control" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentStatus" class="control-label"></label>
+                <input asp-for="PaymentStatus" class="form-control" />
+                <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

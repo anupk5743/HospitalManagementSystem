@@ -1,0 +1,26 @@
+﻿@model List<HMS.Web.Models.AppointmentVM>
+
+<h2>Appointments Report</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.PatientId</td>
+                <td>@item.DoctorId</td>
+                <td>@item.AppointmentDate</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

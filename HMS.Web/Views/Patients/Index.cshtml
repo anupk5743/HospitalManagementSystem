@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HMS.Web.Models.PatientVM>
+
+@{
+    ViewData["Title"] = "Patients";
+}
+
+<h2>Patients List</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Patient</a>
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Blood Group</th>
+            <th>Address</th>
+            <th>Emergency Contact</th>
+            <th>Medical History</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FullName</td>
+                <td>@item.Age</td>
+                <td>@item.Gender</td>
+                <td>@item.Phone</td>
+                <td>@item.Email</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.Address</td>
+                <td>@item.EmergencyContact</td>
+                <td>@item.MedicalHistory</td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

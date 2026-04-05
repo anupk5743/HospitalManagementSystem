@@ -1,0 +1,28 @@
+﻿@model List<HMS.Web.Models.PatientVM>
+
+<h2>Patient Report</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.FullName</td>
+                <td>@p.Age</td>
+                <td>@p.Phone</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
