@@ -40,4 +40,8 @@ This system helps manage hospital operations including patients, doctors, appoin
 ---
 
 ## 📂 Project Structure
-
+HospitalManagementSystem
+│
+├── HMS.Web
+├── HMS.API
+└── Database
